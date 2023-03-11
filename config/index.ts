@@ -1,0 +1,42 @@
+
+import Config from "./enviroments/base";
+import DevConfig from "./enviroments/dev";
+import ProdConfig from "./enviroments/prod";
+import * as dotenv from 'dotenv';
+
+dotenv.config();
+
+class ConfigSingleton {
+  private static instance: ConfigSingleton;
+  private _config: Config;
+
+  private constructor() {
+    const env: string = process.env.NODE_ENV || 'dev';
+    switch (env) {
+      case 'dev':
+        this._config = new DevConfig();
+        break;
+      case 'prod':
+        this._config = new ProdConfig();
+        break;
+      default:
+        throw new Error('Unexpected env variable values found!');
+    }
+  }
+
+  public static getInstance(): ConfigSingleton {
+    if (!ConfigSingleton.instance) {
+      ConfigSingleton.instance = new ConfigSingleton();
+    }
+
+    return ConfigSingleton.instance;
+  }
+
+  public getConfig(): Config {
+    return this._config;
+  }
+}
+
+export default ConfigSingleton.getInstance().getConfig();
+
+
