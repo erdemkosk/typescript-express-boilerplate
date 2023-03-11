@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import { injectable } from 'tsyringe';
 import FooService from './foo.service';
+import { autoInjectable } from 'tsyringe';
 
-@injectable()
+@autoInjectable()
 export default class FooController {
   fooService: FooService;
 

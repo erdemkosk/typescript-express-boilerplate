@@ -1,6 +1,3 @@
-import { injectable } from 'tsyringe';
-
-@injectable()
 export default class FooRepository {
   public async findAll() {
     const foos = [{

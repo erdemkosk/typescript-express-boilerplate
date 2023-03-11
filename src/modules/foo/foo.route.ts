@@ -1,10 +1,11 @@
 import * as express from 'express'
-import { injectable } from 'tsyringe';
-import IRouteBase from '../../interfaces/IRouteBase.interface'
 
+import IRouteBase from '../../interfaces/IRouteBase.interface'
 import FooController from './foo.controller';
 
-@injectable()
+import { autoInjectable } from 'tsyringe';
+
+@autoInjectable()
 export default class FooRoutes implements IRouteBase {
     private fooController: FooController;
 
@@ -16,7 +17,6 @@ export default class FooRoutes implements IRouteBase {
     public router = express.Router();
 
     initializeRoutes() {
-        console.log('kop');
         this.router.get('/foos', this.fooController.getFoo);
     }
 }

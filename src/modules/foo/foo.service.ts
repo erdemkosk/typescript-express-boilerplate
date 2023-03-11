@@ -1,7 +1,7 @@
 import FooRepository from './foo.repository';
-import { injectable } from 'tsyringe';
+import { autoInjectable } from 'tsyringe';
 
-@injectable()
+@autoInjectable()
 export default class FooService {
   fooRepository: FooRepository;
 
