@@ -55,6 +55,19 @@ Start the server
 ```
 
 
+## Docker
+
+Create a Docker image
+
+```bash
+  docker build -t typescript-express-boilerplate .   
+```
+
+Run a Docker image
+
+```bash
+  docker run -p 8080:8080 typescript-express-boilerplate    
+```
 ## Contributing
 
 Contributions are always welcome!
