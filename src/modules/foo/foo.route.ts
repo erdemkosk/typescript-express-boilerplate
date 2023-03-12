@@ -18,5 +18,7 @@ export default class FooRoute implements IRouteBase {
 
     initializeRoutes() {
         this.router.get('/foos', this.fooController.getFoo);
+        this.router.get('/error', this.fooController.getError);
+        this.router.get('/custom-error', this.fooController.getCustomError);
     }
 }

@@ -1,17 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as express from 'express'
+import 'express-async-errors';
 import { Application } from 'express'
 
 class App {
     public app: Application
     public port: number
 
-    constructor(appInit: { port: number; middlewares: any; routes: any; }) {
+    constructor(appInit: { port: number; earlyMiddlewares: any; lateMiddlewares: any; routes: any; }) {
         this.app = express()
         this.port = appInit.port
 
-        this.middlewares(appInit.middlewares)
+        this.middlewares(appInit.earlyMiddlewares)
         this.routes(appInit.routes)
+        this.middlewares(appInit.lateMiddlewares)
         this.assets()
         this.template()
     }

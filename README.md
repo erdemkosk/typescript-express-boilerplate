@@ -17,15 +17,53 @@ This is boilerplate for typescript & express and dependcy injection
 
 ## Features
 
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
+- Custom Error support. You can create any custom error with  message,code,httpCode like throw new CustomError()
+- Dependcy Injection for all modules
+
 
 
 ## Tech Stack
 
 Node, Express, Typescript, tsyringe
+
+
+## API Reference
+
+#### Throwing Error Demo
+
+```http
+  GET /error
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `-` | `-` | You will see uncustom error handler {"message":"Internal server error","success":false} |
+
+#### Throwing Custom Error Demo
+
+```http
+  GET /custom-error
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `-` | `-` | You will see custom error handler {"message":"Example Error For Test","errorCode":1,"success":false} |
+
+#### Testing endpoint
+
+```http
+  GET /foos
+```
+
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `-` | `-` | You will see custom error handler {"message":"Example Error For Test","errorCode":1,"success":false} |
+
+
+
+
+
 
 
 ## Run Locally
