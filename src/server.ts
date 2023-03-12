@@ -1,7 +1,7 @@
 
 import App from './app'
 
-import config from '../config'
+import config from './config'
 
 import * as bodyParser from 'body-parser'
 import * as cors from 'cors'
