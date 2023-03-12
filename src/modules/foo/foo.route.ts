@@ -6,7 +6,7 @@ import FooController from './foo.controller';
 import { autoInjectable } from 'tsyringe';
 
 @autoInjectable()
-export default class FooRoutes implements IRouteBase {
+export default class FooRoute implements IRouteBase {
     private fooController: FooController;
 
     constructor(fooController: FooController) {
