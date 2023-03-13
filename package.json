@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "ts-node src/server.ts",
     "start": "ts-node dist/src/server.js",
-    "build": "tsc -p .",
+    "build": "tsc -p . -w > /dev/null 2>&1 &",
     "lint": "eslint . --ext .ts",
-    "test": "jest"
+     "test": "jest"
   },
   "author": "Mustafa Erdem Köşk",
   "license": "ISC",

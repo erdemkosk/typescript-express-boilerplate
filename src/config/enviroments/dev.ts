@@ -1,6 +1,9 @@
-import Config from "./base";
+import BaseConfig from "./base";
 
-class DevConfig extends Config {
+class DevConfig extends BaseConfig {
+    constructor() {
+        super();
+    }
 }
 
 export default DevConfig;
