@@ -17,7 +17,44 @@ export default class FooRoute implements IRouteBase {
     public router = express.Router();
 
     initializeRoutes() {
+      /**
+ * @swagger
+ * /foos:
+ *   get:
+ *     summary: Get a Foos 
+ *     description: Retrieve a Foos
+ *     tags:
+ *       - foo
+ *     responses:
+ *       200:
+ *         description: The requested Foo object
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *       404:
+ *         description: The requested Foo object not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Foo not found.
+ *                 code:
+ *                   type: number
+ *                   example: 404
+ *                 errorCode:
+ *                   type: number
+ *                   example: 1000
+ *                 error:
+ *                   type: boolean
+ *                   example: true
+ */
+
         this.router.get('/foos', this.fooController.getFoo);
+
         this.router.get('/error', this.fooController.getError);
         this.router.get('/custom-error', this.fooController.getCustomError);
     }

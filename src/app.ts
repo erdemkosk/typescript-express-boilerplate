@@ -2,6 +2,8 @@
 import * as express from 'express'
 import 'express-async-errors';
 import { Application } from 'express'
+import {swaggerSpec} from './util/swagger.util'
+import * as swaggerUi from 'swagger-ui-express';
 
 class App {
     public app: Application
@@ -28,6 +30,8 @@ class App {
         routes.forEach(route => {
             this.app.use('/', route.router)
         })
+
+        this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
     }
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function
