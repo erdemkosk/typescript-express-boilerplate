@@ -2,6 +2,7 @@
 import Config from "./enviroments/base";
 import DevConfig from "./enviroments/dev";
 import ProdConfig from "./enviroments/prod";
+import TestConfig from "./enviroments/tests";
 import * as dotenv from 'dotenv';
 
 dotenv.config();
@@ -18,6 +19,9 @@ class ConfigSingleton {
         break;
       case 'prod':
         this._config = new ProdConfig();
+        break;
+      case 'test':
+        this._config = new TestConfig();
         break;
       default:
         throw new Error('Unexpected env variable values found!');
