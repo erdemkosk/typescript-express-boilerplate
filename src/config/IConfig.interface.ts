@@ -2,4 +2,4 @@ interface IConfig {
     port?: number;
 }
 
-export default IConfig
+export default IConfig;

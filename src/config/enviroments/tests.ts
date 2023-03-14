@@ -1,9 +1,10 @@
-import BaseConfig from "./base";
+import BaseConfig from './base';
 
 class TestConfig extends BaseConfig {
-    constructor() {
-        super();
-    }
+  // eslint-disable-next-line no-useless-constructor
+  constructor() {
+    super();
+  }
 }
 
 export default TestConfig;

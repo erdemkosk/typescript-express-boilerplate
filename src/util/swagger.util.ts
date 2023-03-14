@@ -1,4 +1,3 @@
-
 import * as swaggerJSDoc from 'swagger-jsdoc';
 import { Options } from 'swagger-jsdoc';
 
@@ -44,4 +43,3 @@ const swaggerOptions: Options = {
 };
 
 export const swaggerSpec = swaggerJSDoc(swaggerOptions);
-

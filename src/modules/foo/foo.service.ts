@@ -1,8 +1,7 @@
-import FooRepository from './foo.repository';
 import { autoInjectable } from 'tsyringe';
+import FooRepository from './foo.repository';
 
 import { ERROR_CLASSES } from '../../util/error.util';
-
 
 @autoInjectable()
 export default class FooService {

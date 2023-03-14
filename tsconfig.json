@@ -9,9 +9,13 @@
         "emitDecoratorMetadata": true
     },
     "include": [
-        "src/**/*.ts"
-, "config/IConfig.interface.ts"    ],
+        "src/**/*.ts",
+        "__tests__/**/*.ts",
+        "jest.setup.ts"
+    ],
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "build",
+        "coverage"
     ]
 }

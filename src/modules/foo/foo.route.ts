@@ -1,27 +1,26 @@
-import * as express from 'express'
-
-import IRouteBase from '../../interfaces/IRouteBase.interface'
-import FooController from './foo.controller';
+import * as express from 'express';
 
 import { autoInjectable } from 'tsyringe';
+import IRouteBase from '../../interfaces/IRouteBase.interface';
+import FooController from './foo.controller';
 
 @autoInjectable()
 export default class FooRoute implements IRouteBase {
-    private fooController: FooController;
+  private fooController: FooController;
 
-    constructor(fooController: FooController) {
-      this.fooController = fooController;
-      this.initializeRoutes();
-    }
-  
-    public router = express.Router();
+  constructor(fooController: FooController) {
+    this.fooController = fooController;
+    this.initializeRoutes();
+  }
 
-    initializeRoutes() {
-      /**
+  public router = express.Router();
+
+  initializeRoutes() {
+    /**
  * @swagger
  * /foos:
  *   get:
- *     summary: Get a Foos 
+ *     summary: Get a Foos
  *     description: Retrieve a Foos
  *     tags:
  *       - foo
@@ -53,9 +52,9 @@ export default class FooRoute implements IRouteBase {
  *                   example: true
  */
 
-        this.router.get('/foos', this.fooController.getFoo);
+    this.router.get('/foos', this.fooController.getFoo);
 
-        this.router.get('/error', this.fooController.getError);
-        this.router.get('/custom-error', this.fooController.getCustomError);
-    }
+    this.router.get('/error', this.fooController.getError);
+    this.router.get('/custom-error', this.fooController.getCustomError);
+  }
 }

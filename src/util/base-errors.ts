@@ -7,12 +7,17 @@
     };
   };
 
- class CustomError extends Error {
-    constructor(public message: string, public code: number, public httpCode: number, public isCustom: boolean = true) {
-      super(message);
-      this.name = this.constructor.name;
-      Error.captureStackTrace(this, this.constructor);
-    }
+class CustomError extends Error {
+  constructor(
+    public message: string,
+    public code: number,
+    public httpCode: number,
+    public isCustom: boolean = true,
+  ) {
+    super(message);
+    this.name = this.constructor.name;
+    Error.captureStackTrace(this, this.constructor);
   }
+}
 
-  export {CustomError, CustomErrors}
+export { CustomError, CustomErrors };

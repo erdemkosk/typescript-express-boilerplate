@@ -1,9 +1,9 @@
-import { Request, Response } from 'express'
+import { Request, Response } from 'express';
+import Logger from '../util/logger.util';
 
 const loggerMiddleware = (req: Request, resp: Response, next) => {
-    
-    console.log('Request logged:', req.method, req.path)
-    next()
-}
+  Logger.info('Request logged:', req.method, req.path);
+  next();
+};
 
-export default loggerMiddleware
+export default loggerMiddleware;

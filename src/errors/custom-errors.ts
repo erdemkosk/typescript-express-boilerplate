@@ -1,4 +1,4 @@
-import {CustomError, CustomErrors} from '../util/base-errors';
+import { CustomError, CustomErrors } from '../util/base-errors';
 
 export const CUSTOM_ERRORS: CustomErrors = {
   ExampleError: {
