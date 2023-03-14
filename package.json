@@ -9,8 +9,8 @@
     "build": "tsc -p . -w > /dev/null 2>&1 &",
     "lint": "eslint . --ext .ts",
     "test": "jest",
-    "test:unit": "NODE_ENV=test jest --testPathPattern=\"__tests__/unit/modules/*/\"",
-    "test:e2e": "NODE_ENV=test jest --testPathPattern=\"__tests__/e2e/modules/*/\""
+    "test:unit": "NODE_ENV=test jest --testPathPattern=\"__tests__/unit/*/*/\"",
+    "test:e2e": "NODE_ENV=test jest --testPathPattern=\"__tests__/e2e/*/*/\""
   },
   "author": "Mustafa Erdem Köşk",
   "license": "ISC",
