@@ -15,6 +15,7 @@
   "author": "Mustafa Erdem Köşk",
   "license": "ISC",
   "dependencies": {
+    "celebrate": "^15.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "eslint-import-resolver-typescript": "^3.5.3",
@@ -22,6 +23,7 @@
     "express-async-errors": "^3.1.1",
     "glob": "^7.2.3",
     "helmet": "^6.0.1",
+    "joi": "^17.8.4",
     "mongoose": "^7.0.1",
     "pug": "^3.0.2",
     "reflect-metadata": "^0.1.13",

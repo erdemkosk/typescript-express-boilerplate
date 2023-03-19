@@ -1,6 +1,7 @@
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import helmet from 'helmet';
+import { errors } from 'celebrate';
 import config from './config';
 import App from './app';
 import loggerMiddleware from './middleware/logger.middleware';
@@ -21,6 +22,7 @@ const app = new App({
   ],
   routes: ContainerLogic.getRouteClasses(),
   lateMiddlewares: [
+    errors({ statusCode: 422 }),
     errorMiddleware,
   ],
 });
