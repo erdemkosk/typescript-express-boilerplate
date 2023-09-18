@@ -15,7 +15,8 @@
     "test": "jest",
     "test:unit": "NODE_ENV=test jest --testPathPattern=\"__tests__/unit/*/*/\"",
     "test:e2e": "NODE_ENV=test jest --testPathPattern=\"__tests__/e2e/*/*/\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "clean" : "npx depcheck"
   },
   "author": "Mustafa Erdem Köşk",
   "license": "ISC",
@@ -23,14 +24,10 @@
     "celebrate": "^15.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
-    "eslint-import-resolver-typescript": "^3.5.3",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "glob": "^7.2.3",
     "helmet": "^6.0.1",
-    "joi": "^17.8.4",
-    "mongoose": "^7.0.1",
-    "pug": "^3.0.2",
     "reflect-metadata": "^0.1.13",
     "swagger-jsdoc": "^6.1.0",
     "swagger-ui-express": "^4.6.2",
@@ -42,8 +39,6 @@
   "devDependencies": {
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.1",
-    "@types/jest": "^29.4.1",
-    "@types/mongoose": "^5.11.97",
     "@types/node": "^12.7.8",
     "@types/swagger-jsdoc": "^6.0.1",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
