@@ -10,13 +10,14 @@
   "scripts": {
     "dev": "ts-node src/server.ts",
     "start": "ts-node dist/src/server.js",
-    "build": "tsc -p . -w > /dev/null 2>&1 &",
+    "build": "tsc -p . -w > /dev/null 2>&1 & tsoa spec-and-routes",
     "lint": "eslint . --ext .ts",
     "test": "jest",
     "test:unit": "NODE_ENV=test jest --testPathPattern=\"__tests__/unit/*/*/\"",
     "test:e2e": "NODE_ENV=test jest --testPathPattern=\"__tests__/e2e/*/*/\"",
     "prepare": "husky install",
-    "clean" : "npx depcheck"
+    "clean": "npx depcheck",
+    "routes": "tsoa spec-and-routes"
   },
   "author": "Mustafa Erdem Köşk",
   "license": "ISC",
@@ -32,6 +33,7 @@
     "swagger-jsdoc": "^6.1.0",
     "swagger-ui-express": "^4.6.2",
     "ts-node": "^8.4.1",
+    "tsoa": "^6.1.5",
     "tsyringe": "^4.7.0",
     "typescript": "^4.9.5",
     "winston": "^3.8.2"

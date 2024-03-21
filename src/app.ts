@@ -1,10 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import * as express from 'express';
 import 'express-async-errors';
-import { Application } from 'express';
-import * as swaggerUi from 'swagger-ui-express';
-import { swaggerSpec } from './util/swagger.util';
+import express, {
+  Application,
+  Response as ExResponse,
+  Request as ExRequest,
+} from 'express';
+import swaggerUi from 'swagger-ui-express';
 import Logger from './util/logger.util'
+import { RegisterRoutes } from '../dist/routes';
+// import { container } from './ioc';
 
 class App {
   public app: Application;
@@ -12,16 +16,18 @@ class App {
   public port: number;
 
   constructor(
-    appInit: { port: number; earlyMiddlewares: any; lateMiddlewares: any; routes: any; },
+    appInit: { port: number; earlyMiddlewares: any; lateMiddlewares: any;},
   ) {
     this.app = express();
     this.port = appInit.port;
 
+    this.modules();
     this.middlewares(appInit.earlyMiddlewares);
-    this.routes(appInit.routes);
+    this.routes();
     this.middlewares(appInit.lateMiddlewares);
     this.assets();
     this.template();
+    this.swagger();
   }
 
   private middlewares(middlewares: { forEach: (arg0: (middleware: any) => void) => void; }) {
@@ -30,20 +36,30 @@ class App {
     });
   }
 
-  private routes(routes: { forEach: (arg0: (route: any) => void) => void; }) {
-    routes.forEach((route) => {
-      this.app.use('/', route.router);
-    });
-
-    this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-  }
-
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   private assets() {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   private template() {
+  }
+
+  private modules() {
+    // container.resolve<IMongoLoader>('IMongoLoader').ConnectWithRetry();
+  }
+
+  private routes() {
+    RegisterRoutes(this.app);
+  }
+
+  private swagger() {
+    this.app.use(
+      '/swagger',
+      swaggerUi.serve,
+      async (_req: ExRequest, res: ExResponse) => res.send(
+        swaggerUi.generateHTML(await import('../dist/swagger.json')),
+      ),
+    );
   }
 
   public listen() {

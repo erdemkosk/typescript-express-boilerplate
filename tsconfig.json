@@ -6,7 +6,9 @@
         "outDir": "./dist",
         "baseUrl": "./src",
         "experimentalDecorators": true,
-        "emitDecoratorMetadata": true
+        "emitDecoratorMetadata": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true
     },
     "include": [
         "src/**/*.ts",
